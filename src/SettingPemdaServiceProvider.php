@@ -32,7 +32,7 @@ class SettingPemdaServiceProvider extends ServiceProvider
             ], 'views');
 
             $this->publishes([
-                __DIR__ . '/../database/seeders/PemdaSeeder.php' => database_path('seeders/SettingPemdaSeeder.php'),
+                __DIR__ . '/../database/seeders/PemdaSeeder.php.stub' => database_path('seeders/PemdaSeeder.php'),
             ], 'seeders');
         }
 

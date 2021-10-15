@@ -1,6 +1,5 @@
 <?php
-
-namespace Mdigi\SettingPemda\Database\Seeders;
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Mdigi\SettingPemda\Models\Pemda;

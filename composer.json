@@ -12,8 +12,7 @@
   "autoload": {
     "psr-4": {
       "Mdigi\\SettingPemda\\": "src/",
-      "Mdigi\\SettingPemda\\Database\\Factories\\": "database/factories",
-      "Mdigi\\SettingPemda\\Database\\Seeders\\": "database/seeders"
+      "Mdigi\\SettingPemda\\Database\\Factories\\": "database/factories"
     }
   },
   "autoload-dev": {
