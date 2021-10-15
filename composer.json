@@ -1,0 +1,18 @@
+{
+  "name": "mdigi/setting-pemda",
+  "description": "Module Setting Pemda",
+  "type": "project",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Abdul Aziz Nurfarhana",
+      "email": "farhan@mdigi.tech"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Mdigi\\SettingPemda\\": "src/"
+    }
+  },
+  "require": {}
+}
