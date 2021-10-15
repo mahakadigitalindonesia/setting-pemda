@@ -30,6 +30,10 @@ class SettingPemdaServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../resources/views' => resource_path('views/vendor/settingpemda'),
             ], 'views');
+
+            $this->publishes([
+                __DIR__ . '/../database/seeders/PemdaSeeder.php' => database_path('seeders/SettingPemdaSeeder.php'),
+            ], 'seeders');
         }
 
         $this->registerRoutes();
