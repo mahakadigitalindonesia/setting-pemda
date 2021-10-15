@@ -14,5 +14,26 @@
       "Mdigi\\SettingPemda\\": "src/"
     }
   },
-  "require": {}
+  "autoload-dev": {
+    "psr-4": {
+      "Mdigi\\SettingPemda\\Tests\\": "tests"
+    }
+  },
+  "require": {
+    "php": "^7.3|^8.0",
+    "illuminate/support": "^8.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^6.0",
+    "phpunit/phpunit": "^9.5"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Mdigi\\SettingPemda\\SettingPemdaServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
