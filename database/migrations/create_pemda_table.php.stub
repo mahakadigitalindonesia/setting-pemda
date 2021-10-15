@@ -1,0 +1,44 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+
+class CreatePemdaTable extends Migration
+{
+    /**
+     * Start migration
+     *
+     */
+    public function up()
+    {
+        Schema::create(config('settingpemda.table_name'), function (Blueprint $table) {
+            $table->id();
+            $table->string('kode_provinsi', 2);
+            $table->string('nama_provinsi', 50);
+            $table->string('kode_dati2', 3);
+            $table->string('nama_dati2', 50);
+            $table->string('nama_ibu_kota', 50);
+            $table->string('nama', 100);
+            $table->string('nama_singkat', 30);
+            $table->string('alamat');
+            $table->string('no_telp', 50);
+            $table->string('fax', 50);
+            $table->string('email', 100);
+            $table->string('website', 100);
+            $table->string('kode_pos', 5);
+            $table->string('logo');
+            $table->string('latitude', 100);
+            $table->string('longitude', 100);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Rollback migration
+     */
+    public function down()
+    {
+        Schema::dropIfExists(config('settingpemda.table_name'));
+    }
+}

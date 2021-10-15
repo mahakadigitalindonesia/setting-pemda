@@ -11,13 +11,18 @@
   ],
   "autoload": {
     "psr-4": {
-      "Mdigi\\SettingPemda\\": "src/"
+      "Mdigi\\SettingPemda\\": "src/",
+      "Mdigi\\SettingPemda\\Database\\Factories\\": "database/factories"
     }
   },
   "autoload-dev": {
     "psr-4": {
       "Mdigi\\SettingPemda\\Tests\\": "tests"
     }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit",
+    "test-f": "vendor/bin/phpunit --filter"
   },
   "require": {
     "php": "^7.3|^8.0",
