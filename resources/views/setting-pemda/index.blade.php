@@ -16,7 +16,7 @@
             Update Profil Pemda
         </div>
         <div class="card-body">
-            <form action="{{ route('setting-pemda.store') }}" method="post">
+            <form action="{{ route('setting-pemda.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group row">
                     <label for="kode_provinsi" class="col-md-2 col-form-label">Kode Prov.</label>
@@ -154,6 +154,41 @@
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
+                </div>
+                <div class="form-group row">
+                    <label for="logo" class="col-md-2 col-form-label">Logo</label>
+                    <input id="logo" type="file"
+                           class="form-control col-md-3 @error('logo') is-invalid @enderror" name="logo">
+                    @error('logo')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="form-group row">
+                    <label for="latitude" class="col-md-2 col-form-label">Latitude</label>
+                    <input id="latitude" type="text"
+                           class="form-control col-md-3 @error('latitude') is-invalid @enderror" name="latitude"
+                           value="{{ old('latitude') ?? $pemda->latitude }}">
+                    @error('latitude')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="form-group row">
+                    <label for="longitude" class="col-md-2 col-form-label">Longitude</label>
+                    <input id="longitude" type="text"
+                           class="form-control col-md-3 @error('longitude') is-invalid @enderror" name="longitude"
+                           value="{{ old('longitude') ?? $pemda->longitude }}">
+                    @error('longitude')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="form-group row">
+                    <img src="{{url('storage/'.$pemda->logo)}}" width="200" alt="logo-pemda">
                 </div>
                 <button type="submit" class="btn btn-primary" style="background-color: #143ebd;">Update</button>
             </form>
