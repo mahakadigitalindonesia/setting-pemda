@@ -10,7 +10,6 @@ class Pemda extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
     protected $fillable = [
         'kode_provinsi',
         'nama_provinsi',
@@ -33,11 +32,6 @@ class Pemda extends Model
     public function getTable()
     {
         return config('settingpemda.table_name', parent::getTable());
-    }
-
-    public function get()
-    {
-        return Pemda::first();
     }
 
     protected static function newFactory()

@@ -27,8 +27,8 @@ class PemdaTest extends TestCase
         $pemda = Pemda::factory()->create();
         $this->assertEquals('BPD', $pemda->nama_singkat);
 
-        $this->put(route('setting-pemda.store'), [
-            'kode_provinsi' => '01',
+        $this->post(route('setting-pemda.store'), [
+            'kode_provinsi' => '02',
             'nama_provinsi' => 'Provinsi',
             'kode_dati2' => '01',
             'nama_dati2' => 'Kabupaten',
@@ -45,7 +45,34 @@ class PemdaTest extends TestCase
             'latitude' => '-',
             'longitude' => '-',
         ])->assertRedirect(route('setting-pemda.index'));
-        $updated = (new Pemda)->get();
+        $updated = Pemda::first();
+
+        $this->assertEquals('02', $updated->kode_provinsi);
         $this->assertEquals('BPDS', $updated->nama_singkat);
+    }
+
+    /**
+     * @test
+     */
+    function test_invalid_update_pemda()
+    {
+        $this->post(route('setting-pemda.store'), [
+            'kode_provinsi' => '02',
+            'nama_provinsi' => 'Provinsi',
+            'kode_dati2' => '01',
+            'nama_dati2' => 'Kabupaten',
+            'nama_ibu_kota' => 'Ibu Kota',
+            'nama' => 'Badan Pendapatan Daerah',
+            'nama_singkat' => 'BPDS',
+            'alamat' => 'Alamat',
+            'no_telp' => '000 00000',
+            'fax' => '000 0000',
+            'email' => 'bpd@example.com',
+            'website' => 'www.bpd.go.id',
+            'kode_pos' => '12345',
+            'logo' => '',
+            'latitude' => '',
+            'longitude' => '',
+        ])->assertSessionHasErrors(['logo', 'latitude', 'longitude']);
     }
 }

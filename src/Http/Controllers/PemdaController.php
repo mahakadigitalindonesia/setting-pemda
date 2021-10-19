@@ -4,13 +4,15 @@ namespace Mdigi\SettingPemda\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
 use Mdigi\SettingPemda\Models\Pemda;
 
 class PemdaController extends Controller
 {
-    public function index(Pemda $pemda)
+    public function index()
     {
-        return view('settingpemda::setting-pemda.index', ['pemda' => $pemda->get()]);
+        return view('settingpemda::setting-pemda.index', ['pemda' => Pemda::first()]);
     }
 
     public function store(Request $request)
@@ -29,12 +31,11 @@ class PemdaController extends Controller
             'email' => ['required', 'string', 'max:100'],
             'website' => ['required', 'string', 'max:100'],
             'kode_pos' => ['required', 'string', 'max:5'],
-            'logo' => ['required', 'string', 'max:255'],
-            'latitude' => ['required', 'string', 'max:255'],
-            'longitude' => ['required', 'string', 'max:255'],
+            'logo' => ['sometimes', 'required', 'string', 'max:255'],
+            'latitude' => ['sometimes', 'required', 'string', 'max:255'],
+            'longitude' => ['sometimes', 'required', 'string', 'max:255'],
         ]);
-        $pemda = (new Pemda)->get();
-        $pemda->update($validated);
-        return redirect(route('setting-pemda.index'));
+        Pemda::first()->update($validated);
+        return redirect()->route('setting-pemda.index');
     }
 }
