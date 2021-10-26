@@ -156,16 +156,6 @@
                     @enderror
                 </div>
                 <div class="form-group row">
-                    <label for="logo" class="col-md-2 col-form-label">Logo</label>
-                    <input id="logo" type="file"
-                           class="form-control col-md-3 @error('logo') is-invalid @enderror" name="logo">
-                    @error('logo')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                <div class="form-group row">
                     <label for="latitude" class="col-md-2 col-form-label">Latitude</label>
                     <input id="latitude" type="text"
                            class="form-control col-md-3 @error('latitude') is-invalid @enderror" name="latitude"
@@ -182,6 +172,16 @@
                            class="form-control col-md-3 @error('longitude') is-invalid @enderror" name="longitude"
                            value="{{ old('longitude') ?? $pemda->longitude }}">
                     @error('longitude')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="form-group row">
+                    <label for="logo" class="col-md-2 col-form-label">Logo</label>
+                    <input id="logo" type="file"
+                           class="form-control col-md-3 @error('logo') is-invalid @enderror" name="logo">
+                    @error('logo')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
