@@ -187,8 +187,8 @@
                     </span>
                     @enderror
                 </div>
-                <div class="form-group row">
-                    <img src="{{url('storage/'.$pemda->logo)}}" width="200" alt="logo-pemda">
+                <div class="form-group row p-4">
+                    <img src="{{url('storage/'.$pemda->logo)}}" style="width: 200px;" alt="logo-pemda">
                 </div>
                 <button type="submit" class="btn btn-primary" style="background-color: #143ebd;">Update</button>
             </form>
