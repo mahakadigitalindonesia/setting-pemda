@@ -11,7 +11,7 @@ class PemdaController extends Controller
 {
     public function index()
     {
-        return view('settingpemda::setting-pemda.index', ['pemda' => Pemda::first()]);
+        return view('settingpemda::index', ['pemda' => Pemda::first()]);
     }
 
     public function store(UpdatePemdaRequest $request)
